@@ -1,0 +1,26 @@
+{
+  "project": "energy_lora_router_v08",
+  "profile": "agent_dispatch_training",
+  "base_model": "google/gemma-4-e2b-it",
+  "output_name": "gemma_dispatch_v08",
+  "data_version": "v08",
+  "train_file": "data/processed/train_v08_dispatch.jsonl",
+  "val_file": "data/processed/val_v08_dispatch.jsonl",
+  "smoke_file": "data/processed/smoke_v08_dispatch.jsonl",
+  "format_smoke_file": "data/processed/format_smoke_v08.jsonl",
+  "manifest_file": "data/processed/harness_v08_manifest.json",
+  "precision": { "load_in_4bit": false, "bf16": "auto", "fp16": "auto_inverse" },
+  "lora": { "r": 32, "alpha": 64, "dropout": 0 },
+  "training": {
+    "num_train_epochs": 1, "max_seq_length": 2048,
+    "per_device_train_batch_size": 8, "gradient_accumulation_steps": 4,
+    "effective_batch_size": 32, "learning_rate": 3e-5, "warmup_ratio": 0.03,
+    "save_steps": 40, "eval_steps": 40, "save_total_limit": 3
+  },
+  "notes": [
+    "V8 = boundary repair round.",
+    "clarify_needed over-trigger fix: decision rubric + negative examples.",
+    "no_evidence vs clarify_needed boundary explicitly defined.",
+    "workflow_chain vs single_tool decision table in prompt."
+  ]
+}

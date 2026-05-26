@@ -1,0 +1,14 @@
+
+root ::= object
+object ::= "{" ws pair-list "}"
+pair-list ::= pair | pair "," ws pair-list
+pair ::= key ws ":" ws value
+key ::= string
+value ::= string | array | object-inner | "true" | "false" | "null" | number
+string ::= "\"" char-list "\""
+char-list ::= [^"\\]*
+array ::= "[" ws value-list? ws "]"
+value-list ::= value | value "," ws value-list
+object-inner ::= "{" ws pair-list "}"
+number ::= "-"? [0-9]+ ("." [0-9]+)? ([eE] [+-]? [0-9]+)?
+ws ::= [ \t\n]*

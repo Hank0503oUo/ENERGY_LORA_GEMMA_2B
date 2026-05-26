@@ -1,0 +1,27 @@
+{
+  "project": "energy_lora_router_v07",
+  "profile": "agent_dispatch_training",
+  "base_model": "google/gemma-4-e2b-it",
+  "output_name": "gemma_dispatch_v07",
+  "data_version": "v07",
+  "train_file": "data/processed/train_v07_dispatch.jsonl",
+  "val_file": "data/processed/val_v07_dispatch.jsonl",
+  "smoke_file": "data/processed/smoke_v07_dispatch.jsonl",
+  "format_smoke_file": "data/processed/format_smoke_v07.jsonl",
+  "manifest_file": "data/processed/harness_v07_manifest.json",
+  "precision": { "load_in_4bit": false, "bf16": "auto", "fp16": "auto_inverse" },
+  "lora": { "r": 32, "alpha": 64, "dropout": 0 },
+  "training": {
+    "num_train_epochs": 1, "max_seq_length": 2048,
+    "per_device_train_batch_size": 8, "gradient_accumulation_steps": 4,
+    "effective_batch_size": 32, "learning_rate": 3e-5, "warmup_ratio": 0.03,
+    "save_steps": 40, "eval_steps": 40, "save_total_limit": 3
+  },
+  "notes": [
+    "V7 = schema clarity round.",
+    "3-layer separation: dispatch_type / workflow_id / tool.",
+    "no_evidence forced to required_tools=[].",
+    "Contrast samples: single_tool vs workflow_chain.",
+    "JSON grammar in grammar/."
+  ]
+}

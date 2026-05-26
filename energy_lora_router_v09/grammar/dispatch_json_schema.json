@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "dispatch_type": {
+      "type": "string",
+      "enum": [
+        "single_tool",
+        "workflow_chain",
+        "clarify_needed",
+        "no_evidence",
+        "refusal"
+      ]
+    },
+    "workflow_id": {
+      "type": "string",
+      "enum": [
+        "single_building_year_status",
+        "building_hotspot_improvement",
+        "campus_top_energy_buildings",
+        "campus_year_compare",
+        "building_strategy_plan",
+        "counterfactual_saving_estimate",
+        "document_search_dci",
+        "none"
+      ]
+    },
+    "answerability": {
+      "type": "string",
+      "enum": [
+        "answerable_single_tool",
+        "answerable_multi_tool",
+        "missing_required_arguments",
+        "ambiguous_reference",
+        "unsupported_scope",
+        "unsupported_capability",
+        "unsafe_operation",
+        "no_evidence_expected"
+      ]
+    },
+    "locked_entities": {
+      "type": "object",
+      "properties": {
+        "building_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "years": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "building_names",
+        "years",
+        "metrics"
+      ]
+    },
+    "required_tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tool",
+          "purpose"
+        ]
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "dispatch_type",
+    "workflow_id",
+    "answerability",
+    "locked_entities",
+    "required_tools",
+    "stop_conditions"
+  ]
+}
