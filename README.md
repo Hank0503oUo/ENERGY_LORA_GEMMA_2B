@@ -2,6 +2,12 @@
 
 此 repository 目前聚焦於系統架構、訓練設計、版本演進與安全邊界，不包含原始資料、生成資料集、LoRA 權重、checkpoint、Notebook 輸出或任何可能洩漏真實校園電表資訊的檔案。
 
+## English Overview
+
+This repository documents the architecture and training design of a Gemma LoRA router for a building energy assistant. Instead of training the model to answer directly, the project trains it to emit a structured dispatch contract that decides whether a request is answerable, should be clarified, should be refused, or should trigger a single tool or a multi-step workflow.
+
+The public repository keeps the system architecture, dataset design logic, evaluation philosophy, and safety boundaries, while excluding raw meter data, generated training sets, LoRA weights, checkpoints, and other sensitive artifacts.
+
 ## 專案定位
 
 這個專案不是一般聊天機器人微調，而是把 Gemma LoRA 用在「建築能源助理的路由與派工」。
