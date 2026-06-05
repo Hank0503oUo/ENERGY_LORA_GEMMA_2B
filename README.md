@@ -1,8 +1,6 @@
 # ENERGY_LORA_GEMMA_2B
 
-面試作品集整理版。
-
-此版本只保留系統架構、訓練設計、版本演進與安全邊界，不包含原始資料、生成資料集、LoRA 權重、checkpoint、Notebook 輸出或任何可能洩漏真實校園電表資訊的檔案。
+此 repository 目前聚焦於系統架構、訓練設計、版本演進與安全邊界，不包含原始資料、生成資料集、LoRA 權重、checkpoint、Notebook 輸出或任何可能洩漏真實校園電表資訊的檔案。
 
 ## 專案定位
 
@@ -139,7 +137,7 @@ flowchart LR
 
 ### v09
 
-這是目前最成熟的修補版，也是此專案的面試展示主軸。
+這是目前最成熟的修補版，也是此專案目前的主要穩定版本。
 
 v09 的重點不是換更大模型，而是針對最關鍵的 routing 失敗模式做精修：
 
@@ -211,9 +209,9 @@ flowchart TD
 - safety boundary design for sensitive numerical data
 - prompt/data contract debugging
 
-## 可公開範圍
+## Repository Scope
 
-此面試版刻意不包含：
+此 repository 不包含：
 
 - 真實校園電表資料
 - 生成的 dispatch JSONL
@@ -221,14 +219,14 @@ flowchart TD
 - Colab / Notebook 產出
 - 大型模型 artifact
 
-保留的是最適合在面試中展示的能力：
+目前保留的重點是：
 
 - 我如何把問題定義對
 - 我如何設計 supervision
 - 我如何讓 agent router 可以被驗收
 - 我如何處理結構化輸出失敗與資料邊界
 
-## 面試時可延伸討論
+## Further Directions
 
 - 為什麼 router 要輸出 contract，而不是直接輸出 tool 名稱
 - 如何處理 parse correctness 與 decision correctness 同時優化
@@ -238,4 +236,4 @@ flowchart TD
 
 ## 備註
 
-這個 repository 是面試展示版，因此刻意只保留一份 architecture-focused README。完整開發版包含多輪資料建構、訓練、評估與 artifact 管理，但那些內容不適合直接公開在作品集中。
+這個 repository 目前採用 architecture-focused README 形式。完整開發版原本包含多輪資料建構、訓練、評估與 artifact 管理，但相關內容不適合直接公開，因為涉及敏感數值資料、訓練產物與內部實驗資產。
