@@ -8,6 +8,14 @@ This repository documents the architecture and training design of a Gemma LoRA r
 
 The public repository keeps the system architecture, dataset design logic, evaluation philosophy, and safety boundaries, while excluding raw meter data, generated training sets, LoRA weights, checkpoints, and other sensitive artifacts.
 
+## Current Status
+
+- Status: In Progress
+- Progress stage: late prototype for routing architecture and evaluation design
+- Current stable line: `v09`
+- Current focus: dispatch contract quality, structured JSON reliability, and boundary-aware routing
+- Public repository scope: architecture, training design, and evaluation logic only
+
 ## 專案定位
 
 這個專案不是一般聊天機器人微調，而是把 Gemma LoRA 用在「建築能源助理的路由與派工」。
